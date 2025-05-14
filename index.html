@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DreamHomes | Find Your Perfect Place</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <div class="top-bar">
+    <input type="text" placeholder="Search homes..." class="search-bar" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rent.html">Rent</a></li>
+        <li><a href="buy.html">Buy</a></li>
+        <li><a href="sell.html">Sell</a></li>
+        <li><a href="agents.html">Agents</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <h1>Welcome to DreamHomes</h1>
+</header>
+
+<main>
+  <!-- Slideshow -->
+  <section class="slideshow-container">
+    <img class="slide active" src="images/house24.jpg" alt="House for Sale">
+    <img class="slide" src="images/house 23.jpg" alt="House for Rent">
+    <img class="slide" src="images/house 21.jpg" alt="Another Property">
+
+
+  <!-- Featured Properties -->
+  <section class="properties">
+    <h2>Houses for Rent</h2>
+    <div class="property-card">
+      <img src="images/house8.jpg" alt="Rental House">
+      <p>2BR Cozy Apartment - P3,500/month</p>
+    </div>
+    <div class="property-card">
+      <img src="images/house11.jpg" alt="Rental House">
+      <p>3BR House with Yard - P5,000/month</p>
+    </div>
+
+    <h2>Houses for Sale</h2>
+    <div class="property-card">
+      <img src="images/sale1.jpg" alt="House for Sale">
+      <p>Modern 4BR Home - P950,000</p>
+    </div>
+    <div class="property-card">
+      <img src="images/sale2.jpg" alt="House for Sale">
+      <p>Luxury Villa - P2,100,000</p>
+    </div>
+  </section>
+
+  <!-- Agents -->
+  <section class="agents-section">
+    <h2>Meet Our Agents</h2>
+    <div class="agent-card">
+      <img src="images/agent1.jpg" alt="Agent Sarah">
+      <h3>Sarah M.</h3>
+      <p>4.9 ★★★★☆</p>
+    </div>
+    <div class="agent-card">
+      <img src="images/agent2.jpg" alt="Agent James">
+      <h3>James L.</h3>
+      <p>4.8 ★★★★☆</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Thank you for visiting DreamHomes! &copy; 2025</p>
+</footer>
+
+
+<script>
+  let currentSlide = 0;
+  let slides = document.querySelectorAll(".slide");
+  let isPlaying = true;
+  let slideInterval = setInterval(nextSlide, 3000);
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[index].classList.add("active");
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function toggleSlideShow() {
+    if (isPlaying) {
+      clearInterval(slideInterval);
+    } else {
+      slideInterval = setInterval(nextSlide, 3000);
+    }
+    isPlaying = !isPlaying;
+  }
+</script>
+
+</body>
+</html>

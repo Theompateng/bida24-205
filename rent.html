@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent a Property - Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function filterRentals() {
+            const locationInput = document.getElementById('locationFilter').value.toLowerCase();
+            const priceRange = document.getElementById('priceFilter').value;
+            const cards = document.querySelectorAll('.rent-card');
+
+            cards.forEach(card => {
+                const loc = card.getAttribute('data-location').toLowerCase();
+                const price = parseInt(card.getAttribute('data-price'));
+
+                let matchesLocation = loc.includes(locationInput) || locationInput === "";
+                let matchesPrice = false;
+
+                if (priceRange === 'all') {
+                    matchesPrice = true;
+                } else if (priceRange === '0-4000') {
+                    matchesPrice = price <= 4000;
+                } else if (priceRange === '4001-6000') {
+                    matchesPrice = price > 4000 && price <= 6000;
+                } else if (priceRange === '6001') {
+                    matchesPrice = price > 6000;
+                }
+
+                card.style.display = (matchesLocation && matchesPrice) ? 'block' : 'none';
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <h1>Available Rentals</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rent.html" class="active">Rent</a></li>
+                <li><a href="sell.html">Sell</a></li>
+                <li><a href="buy.html">Buy</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="rent-listings">
+            <h2>Find Your Ideal Rental</h2>
+            <p>Explore handpicked rental properties to fit every budget and lifestyle.</p>
+            <div class="filter-bar">
+                <input type="text" id="locationFilter" placeholder="Enter location (e.g. Gaborone)">
+                <select id="priceFilter">
+                    <option value="all">All Prices</option>
+                    <option value="0-4000">Under P4,000</option>
+                    <option value="4001-6000">P4,001 – P6,000</option>
+                    <option value="6001">Above P6,000</option>
+                </select>
+                <button onclick="filterRentals()">Filter</button>
+            </div>
+
+            <div class="property-grid">
+                
+                <div class="rent-card" data-location="Gaborone" data-price="4500">
+                    <div class="img-box">
+                        <img src="images/houuse 21.jpg" alt="Modern apartment for rent">
+                    </div>
+                    <div class="rent-details">
+                        <h3>2-Bedroom Apartment</h3>
+                        <p>Spacious flat near city center, walking distance to amenities.</p>
+                        <p class="price">P4,500/month</p>
+                        <a href="#" class="rent-btn">View Details</a>
+                    </div>
+                </div>
+
+                
+                <div class="rent-card" data-location="Francistown" data-price="6800">
+                    <div class="img-box">
+                        <img src="images/houuse 22.jpg" alt="Townhouse rental">
+                    </div>
+                    <div class="rent-details">
+                        <h3>3-Bedroom Townhouse</h3>
+                        <p>Family-friendly neighborhood with private yard and garage.</p>
+                        <p class="price">P6,800/month</p>
+                        <a href="#" class="rent-btn">View Details</a>
+                    </div>
+                </div>
+
+            
+                <div class="rent-card" data-location="Palapye" data-price="3200">
+                    <div class="img-box">
+                        <img src="images/house 23.jpg" alt="Studio for rent">
+                    </div>
+                    <div class="rent-card" data-location="Palapye" data-price="3200">
+                    <div class="img-box">
+                        <img src="images/house 21.jpg" alt="Studio for rent">
+                    </div>
+                    <div class="rent-details">
+                        <h3>Studio Apartment</h3>
+                        <p>Ideal for students or professionals. Utilities included.</p>
+                        <p class="price">P3,200/month</p>
+                        <a href="#" class="rent-btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Real Estate Company</p>
+    </footer>
+</body>
+</html>

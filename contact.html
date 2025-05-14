@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <h1>Contact Us</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rent.html">Rent</a></li>
+                <li><a href="sell.html">Sell</a></li>
+                <li><a href="buy.html">Buy</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <h2>We're Here to Help!</h2>
+            <p>You can call us, send an email, or use the form below to get in touch.</p>
+
+            <div class="contact-options">
+                <div class="contact-box">
+                    <h3>📞 Call Us</h3>
+                    <p><a href="tel:+26771234567">+267 71 234 567</a></p>
+                </div>
+
+                <div class="contact-box">
+                    <h3>📧 Email Us</h3>
+                    <p><a href="mailto:info@theorealestate.com">info@theorealestate.com</a></p>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your full name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="@theorealestate.com" required>
+
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="Inquiry about...">
+
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" placeholder="Type your message here..." required></textarea>
+
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Real Estate Company</p>
+    </footer>
+</body>
+</html>
